@@ -100,8 +100,10 @@ where price > (select avg(price) from Book);
 select * from Book b
 where b.book_id in (select b1.book_id from BookOrder b1 
 						where b1.book_id = b.book_id);
-                        
-                        
+
+select * from Book b
+where b.price = ( select max(b1.price) from Book b1
+					where b1.category_id = b.category_id);
 
 
 
